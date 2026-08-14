@@ -1303,7 +1303,66 @@
             stroke: currentColor;
         }
 
-        /* Media Queries (Mobile) */
+        /* Media Queries (Desktop) */
+        @media (min-width: 768px) {
+            .main {
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 40px;
+                padding-bottom: 120px;
+            }
+
+            .top-bar {
+                max-width: 1000px;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                border-radius: 0 0 20px 20px;
+            }
+
+            .bottom-nav {
+                max-width: 600px;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                border-radius: 20px 20px 0 0;
+                border-left: 1px solid var(--border);
+                border-right: 1px solid var(--border);
+            }
+
+            .product-list {
+                display: block;
+            }
+
+            .category-group {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 16px;
+            }
+
+            .category-group-header {
+                grid-column: 1 / -1;
+                margin-top: 16px;
+                padding: 12px 4px 8px;
+                font-size: 0.9rem;
+            }
+
+            .product-card {
+                margin-bottom: 0;
+                height: 100%;
+                align-items: center;
+            }
+
+            .modal {
+                max-width: 500px;
+                border-radius: 24px;
+                padding: 32px;
+            }
+
+            #campaignUploadZone {
+                height: 260px;
+            }
+        }
     </style>
 </head>
 
