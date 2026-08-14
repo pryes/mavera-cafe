@@ -114,7 +114,7 @@ function initReveal(scope) {
 // ============================================
 async function loadProducts() {
   try {
-    const data = await sbGet('products', '?select=*&order=category,name');
+    const data = await sbGet('products', '?select=*&order=category_order,category,sort_order,name');
     if (data && data.length > 0) {
       CONFIG.products = data;
       console.log(`✅ Supabase'den ${data.length} ürün yüklendi.`);

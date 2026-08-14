@@ -757,8 +757,9 @@
 
         .product-card-actions {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 6px;
+            align-items: center;
         }
 
         /* Scrollable product list wrap */
@@ -1214,16 +1215,18 @@
 
         .cat-action-group {
             display: flex;
-            gap: 8px;
+            flex-direction: row;
+            gap: 4px;
             margin-left: 12px;
+            align-items: center;
         }
 
         .cat-icon-btn {
             background: rgba(255, 255, 255, 0.05);
             border: none;
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1265,6 +1268,41 @@
             stroke: #ef4444;
         }
 
+        /* =========  PASSWORD TOGGLE ========= */
+        .pw-wrap {
+            position: relative;
+        }
+
+        .pw-wrap input {
+            width: 100%;
+            padding-right: 44px;
+        }
+
+        .pw-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            color: var(--muted);
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .pw-toggle:hover {
+            color: var(--white);
+        }
+
+        .pw-toggle svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+        }
+
         /* Media Queries (Mobile) */
     </style>
 </head>
@@ -1287,7 +1325,17 @@
                 </div>
                 <div class="field">
                     <label>Şifre</label>
-                    <input type="password" id="loginPassword" placeholder="••••••••" required />
+                    <div class="pw-wrap">
+                        <input type="password" id="loginPassword" placeholder="••••••••" required />
+                        <button type="button" class="pw-toggle" onclick="togglePw()" id="pwToggleBtn" tabindex="-1"
+                            aria-label="Şifreyi göster">
+                            <svg id="pwEyeIcon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <button class="btn-primary" type="submit" id="loginBtn">Giriş Yap</button>
                 <div class="login-error" id="loginError"></div>
@@ -1828,6 +1876,18 @@
         }
 
         // =====================
+        // PRODUCTS
+        // =====================
+        async function loadProducts() {
+            const { data, error } = await db.from('products').select('*').order('category_order').order('category').order('sort_order').order('name');
+            if (error) { showToast('Ürünler yüklenemedi.', 'error'); return; }
+            allProducts = data;
+            populateCategoryFilter();
+            renderTable(allProducts);
+            document.getElementById('productCount').textContent = allProducts.length + ' ürün';
+        }
+
+        // =====================
         // MANAGE CATEGORIES
         // =====================
         function openManageCatModal() {
@@ -1841,8 +1901,10 @@
 
         function renderManageCatList() {
             const wrap = document.getElementById('manageCatList');
-            const prodCats = allProducts.map(p => p.category);
-            const cats = [...new Set([...prodCats, ...customCategories])].sort().filter(c => c !== 'Diğer');
+
+            // Generate list maintaining sorted order from allProducts
+            const prodCats = Array.from(new Set(allProducts.map(p => p.category)));
+            let cats = [...new Set([...prodCats, ...customCategories])].filter(c => c !== 'Diğer');
 
             if (cats.length === 0) {
                 wrap.innerHTML = '<p style="color:var(--muted); font-size:0.85rem; text-align:center; margin: 12px 0;">Yönetilecek kategori bulunamadı.</p>';
@@ -1858,7 +1920,14 @@
                         <input type="text" value="${c}" id="catName_${b64}" readonly spellcheck="false" />
                     </div>
                     <div class="cat-action-group">
-                        <button class="cat-icon-btn edit-btn" onclick="startCategoryEdit('${b64}')" id="editBtn_${b64}" title="Düzenle">
+                        <button type="button" class="cat-icon-btn edit-btn" onclick="moveCategory('${b64}', 'up')" title="Yukarı Taşı">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+                        </button>
+                        <button type="button" class="cat-icon-btn edit-btn" onclick="moveCategory('${b64}', 'down')" title="Aşağı Taşı">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div style="width: 1px; height: 16px; background: rgba(255,255,255,0.1); margin: 0 4px;"></div>
+                        <button type="button" class="cat-icon-btn edit-btn" onclick="startCategoryEdit('${b64}')" id="editBtn_${b64}" title="Düzenle">
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path></svg>
                         </button>
                         <button class="cat-icon-btn save-btn" onclick="renameCategory('${safeName}', '${b64}')" style="display:none;" id="saveBtn_${b64}" title="Onayla">
@@ -1916,6 +1985,50 @@
             });
         }
 
+        function moveCategory(b64, direction) {
+            let catName;
+            try { catName = decodeURIComponent(atob(b64)); } catch (err) { return; }
+
+            const prodCats = Array.from(new Set(allProducts.map(p => p.category)));
+            let cats = [...new Set([...prodCats, ...customCategories])].filter(c => c !== 'Diğer');
+
+            const catIndex = cats.indexOf(catName);
+            if (catIndex === -1) return;
+
+            if (direction === 'up' && catIndex === 0) return;
+            if (direction === 'down' && catIndex === cats.length - 1) return;
+
+            const targetIndex = direction === 'up' ? catIndex - 1 : catIndex + 1;
+
+            // Yerdeğiştir
+            const temp = cats[catIndex];
+            cats[catIndex] = cats[targetIndex];
+            cats[targetIndex] = temp;
+
+            // Tüm ürünlere yeni category_order indexini işle
+            cats.forEach((c, idx) => {
+                allProducts.filter(p => p.category === c).forEach(p => p.category_order = idx);
+            });
+
+            // Local memory'i sırala (Gecikmesiz UI için)
+            allProducts.sort((a, b) => {
+                const ca = a.category_order || 0;
+                const cb = b.category_order || 0;
+                if (ca !== cb) return ca - cb;
+                if (a.category !== b.category) return a.category.localeCompare(b.category);
+                return (a.sort_order || 0) - (b.sort_order || 0) || a.name.localeCompare(b.name);
+            });
+
+            // Arka planda DB güncelle
+            const promises = cats.map((c, idx) => db.from('products').update({ category_order: idx }).eq('category', c));
+            Promise.all(promises).catch(console.error);
+
+            // Eğer "Tümü" seçiliyse ana listeyi de yenile, ya da direk yenile
+            filterTable();
+            renderManageCatList(); // kendisini de yenile
+
+            showToast('Kategori sıralandı ✓', 'success');
+        }
 
         function filterTable() {
             const q = document.getElementById('searchInput').value.toLowerCase().trim();
@@ -1927,6 +2040,8 @@
             });
             renderTable(filtered);
         }
+
+
 
         function renderTable(products) {
             const wrap = document.getElementById('tableWrap');
@@ -1942,7 +2057,8 @@
                 return acc;
             }, {});
 
-            const categories = Object.keys(grouped).sort();
+            // JS obje anahtarları insertion-order korur. products zaten sıralıdır. Kategoriyi aynen alabiliriz.
+            let categories = Object.keys(grouped);
 
             wrap.innerHTML = `
     <div class="product-list">
@@ -1966,6 +2082,13 @@
                 <div class="product-card-price">₺${p.price}</div>
               </div>
               <div class="product-card-actions">
+                <button class="btn-icon btn-edit" title="Yukarı Taşı" onclick="moveProduct(${p.id}, 'up')">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+                </button>
+                <button class="btn-icon btn-edit" title="Aşağı Taşı" onclick="moveProduct(${p.id}, 'down')">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div style="width: 1px; height: 16px; background: rgba(255,255,255,0.1); margin: 0 4px;"></div>
                 <button class="btn-icon btn-edit" title="Düzenle" onclick="openEditModal(${p.id})">
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                 </button>
@@ -1979,6 +2102,57 @@
       `).join('')}
     </div>
   `;
+        }
+
+        async function moveProduct(id, direction) {
+            const pIndex = allProducts.findIndex(p => p.id === id);
+            if (pIndex === -1) return;
+            const p = allProducts[pIndex];
+
+            const catProducts = allProducts.filter(x => x.category === p.category);
+            const catIndex = catProducts.findIndex(x => x.id === id);
+
+            if (direction === 'up' && catIndex === 0) return;
+            if (direction === 'down' && catIndex === catProducts.length - 1) return;
+
+            const targetIndex = direction === 'up' ? catIndex - 1 : catIndex + 1;
+            const pTarget = catProducts[targetIndex];
+
+            let so1 = p.sort_order || 0;
+            let so2 = pTarget.sort_order || 0;
+
+            // 1) Optimizasyon (Anında UI Güncellemesi - Optimistic Update)
+            if (so1 === so2) {
+                catProducts.forEach((x, i) => x.sort_order = i + 1);
+                if (direction === 'up') {
+                    catProducts[catIndex].sort_order = catIndex;
+                    catProducts[targetIndex].sort_order = catIndex + 1;
+                } else {
+                    catProducts[catIndex].sort_order = catIndex + 2;
+                    catProducts[targetIndex].sort_order = catIndex + 1;
+                }
+            } else {
+                p.sort_order = so2;
+                pTarget.sort_order = so1;
+            }
+
+            // Local listeyi yeni sort_order değerlerine göre sıralayıp hemen ekrana bas (Gecikme 0ms)
+            allProducts.sort((a, b) => {
+                if (a.category !== b.category) return a.category.localeCompare(b.category);
+                return (a.sort_order || 0) - (b.sort_order || 0) || a.name.localeCompare(b.name);
+            });
+            filterTable(); // anında değişiklik görünür
+
+            // 2) Arka planda DB'yi güncelle
+            if (so1 === so2) {
+                const promises = catProducts.map(x => db.from('products').update({ sort_order: x.sort_order }).eq('id', x.id));
+                Promise.all(promises).catch(err => console.error(err));
+            } else {
+                Promise.all([
+                    db.from('products').update({ sort_order: p.sort_order }).eq('id', p.id),
+                    db.from('products').update({ sort_order: pTarget.sort_order }).eq('id', pTarget.id)
+                ]).catch(err => console.error(err));
+            }
         }
 
         // =====================
@@ -2148,6 +2322,21 @@
             el.className = `toast ${type} show`;
             clearTimeout(toastTimer);
             toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+        }
+
+        // =====================
+        // AUTH UI
+        // =====================
+        function togglePw() {
+            const input = document.getElementById('loginPassword');
+            const icon = document.getElementById('pwEyeIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+            } else {
+                input.type = 'password';
+                icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+            }
         }
 
         // =====================
