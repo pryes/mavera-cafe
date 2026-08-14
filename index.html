@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mâverâ Cafe & Restoran · Sultanbeyli · Kahvaltı, Izgara, Nargile</title>
+  <meta name="description"
+    content="Mâverâ Cafe & Restoran — Sultanbeyli'nde rustik-şık atmosferde zengin serpme kahvaltı, özel burger, karışık ızgara ve nargile keyfi. Her gün 09:00–02:00 arası hizmetinizdeyiz." />
+  <meta name="keywords"
+    content="Mâverâ cafe, Sultanbeyli cafe, Sultanbeyli restoran, serpme kahvaltı, nargile, Sultanbeyli nargile, Mâverâ lounge, kahvaltı Sultanbeyli" />
+  <meta name="theme-color" content="#1A1A1A" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Mâverâ Cafe & Restoran · Mâverâ'nın Lezzet Dünyası" />
+  <meta property="og:description"
+    content="Sultanbeyli'nde sıcak, samimi ve rustik-şık bir atmosfer. Kahvaltı, ızgara, burger, nargile ve daha fazlası." />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="Mâverâ Cafe & Restoran" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mâverâ Cafe & Restoran" />
+  <meta name="twitter:description" content="Rustik-şık atmosferde zengin menü ve nargile keyfi." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="apple-touch-icon" href="images/logo.png" />
+
+  <!-- Schema.org LocalBusiness JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Restaurant", "CafeOrCoffeeShop"],
+    "name": "Mâverâ Cafe & Restoran",
+    "image": "",
+    "slogan": "Mâverâ'nın Lezzet Dünyası",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Abdurrahmangazi, Balarısı Sk. 4b",
+      "addressLocality": "Sultanbeyli",
+      "addressRegion": "İstanbul",
+      "postalCode": "34920",
+      "addressCountry": "TR"
+    },
+    "telephone": "+905072002505",
+    "openingHours": "Mo-Su 09:00-02:00",
+    "priceRange": "₺₺",
+    "servesCuisine": ["Türk", "Kahvaltı", "Izgara", "Burger", "Nargile"],
+    "sameAs": ["https://www.instagram.com/mavera_cafelounge/"]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ========== HEADER / NAV ========== -->
+  <header class="site-header on-dark" id="siteHeader">
+    <div class="container nav-wrap">
+      <a href="#home" class="logo" aria-label="Mâverâ Cafe & Restoran ana sayfa">
+        <span class="logo-mark">Mâverâ</span>
+        <span class="logo-sub">Cafe · Lounge</span>
+      </a>
+      <nav aria-label="Ana menü">
+        <ul class="nav-links">
+          <li><a href="#home">Anasayfa</a></li>
+          <li><a href="#hakkimizda">Hakkımızda</a></li>
+          <li><a href="#menu">Menü</a></li>
+          <li><a href="#atmosfer">Atmosfer</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </nav>
+      <a class='btn btn-primary nav-cta' href='menu.html'>Menüyü Gör</a>
+      <button class="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobil menü">
+    <button class="mobile-nav-close" type="button" aria-label="Menüyü kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <div class="mobile-nav-brand">
+      <span class="mobile-nav-brand-name">Mâverâ</span>
+      <span class="mobile-nav-brand-sub">Cafe · Lounge</span>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#home">Anasayfa</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#menu">Menü</a>
+      <a href="#atmosfer">Atmosfer</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a class='btn btn-primary' href='menu.html'>Tüm Menüyü Gör</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <div class="hero-bg-image"></div>
+        <div class="hero-grain"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Sultanbeyli · İstanbul</div>
+        <h1>Mâverâ'nın <span class="accent">Lezzet</span> Dünyası</h1>
+        <p class="hero-slogan">Rustik-şık atmosfer, sıcak sohbet, özgün tatlar</p>
+        <p class="hero-desc">Zengin serpme kahvaltılardan usta işi ızgaralara, geleneksel Türk kahvesinden özenli
+          nargile çeşitlerine — kendinizi evinizde hissedeceğiniz bir butik deneyim.</p>
+        <div class="hero-actions">
+          <a class='btn btn-primary' href='menu.html'>Menüyü İncele</a>
+          <a href="#iletisim" class="btn btn-ghost">Rezervasyon & İletişim</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true"></div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span>Her gün 09:00 – 02:00</span>
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span>Abdurrahmangazi, Balarısı Sk. 4b</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HAKKIMIZDA ========== -->
+    <section class="about" id="hakkimizda">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80"
+              onerror="this.onerror=null;this.src='images/mavera-cafe/cafe.png'"
+              alt="Mâverâ Cafe'nin sıcak ve rustik iç mekanı — ahşap detaylar ve loş aydınlatma" class="about-img"
+              loading="lazy" />
+            <div class="about-badge">
+              <span class="about-badge-num">4.6★</span>
+              <span class="about-badge-text">52 Değerlendirme</span>
+            </div>
+          </div>
+          <div class="about-text">
+            <span class="section-label">Hikâyemiz</span>
+            <h2>Mâverâ: <em style="color: var(--gold-deep); font-style: italic;">Sıradanın ötesinde</em> bir buluşma
+              noktası</h2>
+            <p>
+              "Mâverâ"; ötesi, öteki taraf demek. Biz de klasik kafe anlayışının ötesine geçip,
+              Sultanbeyli'nde kendine has bir atmosfer yaratmak için yola çıktık: ahşap dokusu,
+              sıcak ışıklar, samimi sohbetler ve özenli tabaklar.
+            </p>
+            <p>
+              Kahvaltıdan akşam yemeğine, kahveden nargileye her detayı; malzemenin
+              tazeliği, sunumun sadeliği ve misafirin rahatlığı üzerine kurduk.
+            </p>
+            <div class="about-features">
+              <div class="about-feature">
+                <div class="about-feature-icon">🌿</div>
+                <div>
+                  <h4>Taze Malzeme</h4>
+                  <p>Günlük tedarik, yerel üretici</p>
+                </div>
+              </div>
+              <div class="about-feature">
+                <div class="about-feature-icon">🔥</div>
+                <div>
+                  <h4>Usta Izgara</h4>
+                  <p>Meşe kömüründe pişim</p>
+                </div>
+              </div>
+              <div class="about-feature">
+                <div class="about-feature-icon">💨</div>
+                <div>
+                  <h4>Nargile Keyfi</h4>
+                  <p>Özenli hazırlık, premium aroma</p>
+                </div>
+              </div>
+              <div class="about-feature">
+                <div class="about-feature-icon">✨</div>
+                <div>
+                  <h4>Rustik-Şık</h4>
+                  <p>Sıcak, ferah, özgün mekan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ÖNE ÇIKAN MENÜ ========== -->
+    <section class="featured-menu" id="menu">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label center">Öne Çıkanlar</span>
+          <h2 class="section-title center">İmza Lezzetlerimiz</h2>
+          <div class="divider"><span>◆</span></div>
+          <p class="section-sub center">
+            Mutfağımızdan ve nargile menümüzden en çok sevilen seçkiler. Tüm ürünler ve
+            daha fazlası için QR menümüzü inceleyin.
+          </p>
+        </div>
+        <div class="featured-grid" id="featuredGrid">
+          <!-- Ürün kartları JS ile basılır -->
+        </div>
+        <div class="menu-cta reveal">
+          <a class='btn btn-dark' href='menu.html'>Tüm Menüyü Gör</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ATMOSFER / GALERİ ========== -->
+    <section class="atmosphere" id="atmosfer">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label center">Atmosfer</span>
+          <h2 class="section-title center">Buluşmaların <em style="color: var(--gold); font-style: italic;">yeni
+              adresi</em></h2>
+          <div class="divider"><span>◆</span></div>
+          <p class="section-sub center">
+            Sessiz bir kahve molasından kalabalık akşam sohbetlerine; her anınıza
+            eşlik edecek rahat ve karakterli bir mekan tasarladık.
+          </p>
+        </div>
+        <div class="atmo-grid">
+          <div class="atmo-item reveal">
+            <div class="atmo-item-bg" role="img" aria-label="Nargile ve sıcak içecekler"
+              style="background-image: url('images/mavera-cafe/nargile.png'); background-size: cover; background-position: center;">
+            </div>
+            <span class="atmo-caption">Nargile Keyfi</span>
+          </div>
+          <div class="atmo-item reveal">
+            <div class="atmo-item-bg" role="img" aria-label="Ahşap detaylar ve rustik atmosfer"
+              style="background-image: url('images/mavera-cafe/cafe.png'); background-size: cover; background-position: center;">
+            </div>
+            <span class="atmo-caption">Rustik Detaylar</span>
+          </div>
+          <div class="atmo-item reveal">
+            <div class="atmo-item-bg" role="img" aria-label="Usta işi ızgara lezzetleri"
+              style="background-image: url('images/mavera-cafe/izgara.png'); background-size: cover; background-position: center;">
+            </div>
+            <span class="atmo-caption">Izgara</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA STRIP ========== -->
+    <section class="cta-strip">
+      <div class="container cta-strip-inner">
+        <div>
+          <h2>Masanızdan kolayca sipariş verin</h2>
+          <p>QR menümüzü tarayın, tüm lezzetleri anında görün — rezervasyon için bizi arayabilirsiniz.</p>
+        </div>
+        <a class='btn' href='menu.html'>Menüyü İncele</a>
+      </div>
+    </section>
+
+    <!-- ========== İLETİŞİM ========== -->
+    <section class="contact" id="iletisim">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label center">İletişim</span>
+          <h2 class="section-title center">Bizi ziyaret edin</h2>
+          <div class="divider"><span>◆</span></div>
+          <p class="section-sub center">Rezervasyon, bilgi veya özel günleriniz için bizimle iletişime geçebilirsiniz.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>İletişim Bilgileri</h3>
+            <p>Sorularınız ve rezervasyonlarınız için aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Adres</h4>
+                  <a href="https://maps.app.goo.gl/pwgW2uNVkEbayZvw6" target="_blank" rel="noopener noreferrer">
+                    Abdurrahmangazi, Balarısı Sk. 4b<br />34920 Sultanbeyli / İstanbul
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Telefon</h4>
+                  <a href="tel:+905072002505">0507 200 25 05</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div class="contact-hours">
+                  <h4>Çalışma Saatleri</h4>
+                  <p>Her gün açığız</p>
+                  <span>09:00 – 02:00</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Instagram</h4>
+                  <a href="https://www.instagram.com/mavera_cafelounge/" target="_blank"
+                    rel="noopener noreferrer">@mavera_cafelounge</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="socials">
+              <a href="https://www.instagram.com/mavera_cafelounge/" target="_blank" rel="noopener noreferrer"
+                class="social-btn" aria-label="Instagram">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              <a href="https://maps.app.goo.gl/pwgW2uNVkEbayZvw6" target="_blank" rel="noopener noreferrer"
+                class="social-btn" aria-label="Google Haritalar">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </a>
+              <a href="tel:+905072002505" class="social-btn" aria-label="Telefon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.58l2.2-2.21c.28-.27.36-.66.25-1.01C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-map reveal" aria-label="Google Haritalar konum">
+            <iframe
+              src="https://www.google.com/maps?q=M%C3%A2ver%C3%A2+Cafe+Lounge,+Abdurrahmangazi,+Balar%C4%B1s%C4%B1+Sk.+4b,+34920+Sultanbeyli%2F%C4%B0stanbul&output=embed"
+              title="Mâverâ Cafe konum" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-mark" style="font-family: var(--serif);">Mâverâ</div>
+          <p>
+            Sultanbeyli'nde rustik-şık bir atmosferde; kahvaltı, ızgara, burger ve nargile
+            keyfi. Sıcak sohbet, özenli sunum.
+          </p>
+        </div>
+        <div>
+          <h4>Bağlantılar</h4>
+          <ul>
+            <li><a href="#home">Anasayfa</a></li>
+            <li><a href="#hakkimizda">Hakkımızda</a></li>
+            <li><a href='menu.html'>Menü</a></li>
+            <li><a href="#atmosfer">Atmosfer</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>İletişim</h4>
+          <div class="footer-contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>Abdurrahmangazi, Balarısı Sk. 4b, Sultanbeyli/İstanbul</span>
+          </div>
+          <div class="footer-contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <a href="tel:+905072002505">0507 200 25 05</a>
+          </div>
+          <div class="footer-contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>Her gün 09:00 – 02:00</span>
+          </div>
+          <div style="display: flex; gap: 10px; margin-top: 16px;">
+            <a href="https://www.instagram.com/mavera_cafelounge/" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: var(--gold); display: inline-flex; align-items: center; justify-content: center; transition: all var(--transition);"
+              onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)';"
+              onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.color='var(--gold)';">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://wa.me/905072002505" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: var(--gold); display: inline-flex; align-items: center; justify-content: center; transition: all var(--transition);"
+              onmouseover="this.style.background='var(--gold)'; this.style.color='var(--black)';"
+              onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.color='var(--gold)';">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© <span id="year"></span> Mâverâ Cafe & Restoran · Tüm hakları saklıdır.</div>
+        <div>Mâverâ'nın Lezzet Dünyası · <span class="heart">♥</span> Sultanbeyli</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING WHATSAPP BUTTON (Tüm sayfalarda) ========== -->
+  <a href="https://wa.me/905072002505" target="_blank" rel="noopener noreferrer" class="whatsapp-fab"
+    aria-label="WhatsApp ile iletişime geç" title="Bize WhatsApp'tan yazın">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
